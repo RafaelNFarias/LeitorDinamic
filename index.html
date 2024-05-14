@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+    background-color: #333; /* Cor de fundo padrão para tema escuro */
+    color: rgb(227, 230, 53); /* Cor do texto padrão para tema escuro */
+    transition: background-color 0.5s, color 0.5s;
+  }
+  .slide-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+    padding: 40px; /* Espaçamento interno de 40px em todos os lados */
+    box-sizing: border-box; /* Garante que o padding seja incluído na largura total */
+  }
+  .active {
+    opacity: 1;
+  }
+  .light-mode {
+    background-color: #fff; /* Cor de fundo para tema claro */
+    color: #333; /* Cor do texto para tema claro */
+  }
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="slide-container" class="slide-container">
+  <div class="slide active" id="slide1">
+    <h1>A Incrível História do Superman: Um Símbolo de Esperança Através das Décadas</h1>
+    <h2>
+        Nascido em Krypton, Criado na Terra:
+    </h2>
+    <p>Em Krypton, um planeta à beira da destruição, o cientista Jor-El e sua esposa Lara enviaram seu filho Kal-El em uma nave espacial em direção à Terra. A nave pousou em Smallville, Kansas, onde o bebê foi encontrado e criado pelo bondoso casal Jonathan e Martha Kent, que o batizaram de Clark.</p> <br>
+    <h2>
+        Descobrindo Poderes Extraordinários:
+    </h2>
+    <p>
+        Com o tempo, Clark desenvolveu habilidades sobre-humanas, como força, velocidade e invulnerabilidade. Guiado pelos ensinamentos dos Kent, ele jurou usar seus poderes para o bem e se tornou o Super-Homem, um símbolo de esperança para a humanidade.
+    </p>
+  </div>
+  <div class="slide" id="slide2">
+    <h1>A Incrível História do Superman: Um Símbolo de Esperança Através das Décadas</h1>
+    <h2>
+        Metrópolis e o Planeta Diário:
+    </h2>
+    <p>Clark se mudou para Metrópolis, onde adotou a identidade de Clark Kent, um tímido repórter do Planeta Diário. Lá, ele conheceu Lois Lane, uma colega de trabalho perspicaz e determinada, que se tornaria sua amada e confidente.</p> <br>
+    <h2>
+        Lutando pela Verdade e Justiça:
+    </h2>
+    <p>
+        O Superman enfrenta diversos vilões, desde Lex Luthor, um gênio do mal obcecado por poder, até Brainiac, um superinteligente colecionador de planetas. Ele defende Metrópolis e o mundo de ameaças intergalácticas e desastres naturais, sempre lutando pela verdade e justiça.
+    </p>
+  </div>
+  <div class="slide" id="slide3">
+    <h1>A Incrível História do Superman: Um Símbolo de Esperança Através das Décadas</h1>
+    <h2>
+        Um Ícone Cultural e Símbolo de Inspiração:
+    </h2>
+    <p>Ao longo de mais de 80 anos, o Superman se tornou um ícone cultural e um símbolo de inspiração para pessoas de todas as idades. Sua história foi contada em quadrinhos, séries de televisão, filmes, videogames e outros meios, sempre transmitindo valores como esperança, compaixão e a importância de defender o que é certo.</p> <br>
+    <h2>
+        Evoluindo com o Tempo:
+    </h2>
+    <p>
+        Embora sua essência permaneça a mesma, o Superman continua a evoluir com o tempo, enfrentando novos desafios e questionamentos em suas histórias. Sua jornada serve como um lembrete de que todos nós podemos fazer a diferença no mundo, usando nossos talentos e habilidades para ajudar os outros.
+    </p>
+    <h2>
+        O futuro do Homem de Aço:
+    </h2>
+    <p>
+        O legado do Superman continua forte, inspirando novas gerações com sua mensagem de esperança e justiça. Sua história é um lembrete de que, mesmo em tempos sombrios, sempre haverá alguém lutando por um mundo melhor.
+    </p>
+  </div>
+</div>
+
+<button onclick="changeSlide(-1)">Anterior</button>
+<button onclick="changeSlide(1)">Próximo</button>
+<button onclick="toggleTheme()">Mudar Tema</button>
+
+<script>
+var currentSlide = 1;
+showSlide(currentSlide);
+
+function showSlide(n) {
+  var slides = document.getElementsByClassName("slide");
+  if (n > slides.length) {currentSlide = 1}
+  if (n < 1) {currentSlide = slides.length}
+  for (var i = 0; i < slides.length; i++) {
+      slides[i].style.opacity = "0";
+  }
+  slides[currentSlide-1].style.opacity = "1";
+}
+
+function changeSlide(n) {
+  showSlide(currentSlide += n);
+}
+
+function toggleTheme() {
+  var body = document.body;
+  body.classList.toggle("light-mode");
+}
+</script>
+
+</body>
+</html>
